@@ -2,6 +2,7 @@
   "name": "counting",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://quanmuito.github.io/counting",
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -13,7 +14,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lintcheck": "eslint -c ./.eslintrc.json **/*.{ts,tsx}",
-    "lintfix": "eslint --fix -c ./.eslintrc.json **/*.{ts,tsx}"
+    "lintfix": "eslint --fix -c ./.eslintrc.json **/*.{ts,tsx}",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -31,6 +34,7 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
+    "gh-pages": "^3.2.3",
     "jest": "26.6.0",
     "react-scripts": "4.0.3"
   },
