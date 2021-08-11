@@ -19,7 +19,7 @@ code {
 .App-header {
     background-color: rgb(47, 49, 56);
     min-width: 100vw;
-    max-height: 34.75vh;
+    height: 34.75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +32,7 @@ code {
 .App-body {
     background-color: rgb(47, 49, 56);
     min-width: 100vw;
-    max-height: 64.75vh;
+    height: 64.75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
