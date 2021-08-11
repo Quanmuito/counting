@@ -19,7 +19,7 @@ code {
 .App-header {
     background-color: rgb(47, 49, 56);
     min-width: 100vw;
-    min-height: 34.75vh;
+    max-height: 34.75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +32,7 @@ code {
 .App-body {
     background-color: rgb(47, 49, 56);
     min-width: 100vw;
-    min-height: 64.75vh;
+    max-height: 64.75vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,7 +45,7 @@ code {
     left: 0;
     bottom: 0;
     width: 100%;
-    padding: 4.5vh 0;
+    padding: 4vh 0;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     user-select: none;
     transition: bottom 0.4s;
