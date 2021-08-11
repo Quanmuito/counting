@@ -1,37 +1,52 @@
-import React, { useState } from 'react';
-import { ConvertEngine } from './ConvertEngine';
+import React, { useEffect, useState } from 'react';
+import { convertEngine } from './utils/convertEngine';
 import {
-    getNumberStringArr
-} from './Functions';
+    capitalizeFirstLetter,
+    addCommaToNumber
+} from './utils/helpers';
+
+import Keyboard from './Keyboard';
 
 function App() {
     const [input, setInput] = useState<number>(0);
 
-    const handleInputChange = (e: any): void => {
-        const inputStr: string = e.target.value;
-        const numb: number = parseInt(inputStr);
-        if (isNaN(numb)) {
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        const inputStr: string = event.target.value;
+        const nbr: number = parseInt(inputStr);
+
+        isNaN(nbr)
+            ? setInput(0)
+            : setInput(nbr);
+    };
+
+    useEffect(() => {
+        if (input > Number.MAX_SAFE_INTEGER) {
             setInput(0);
-        } else {
-            if (numb > Number.MAX_SAFE_INTEGER) {
-                setInput(0);
-                alert('Maximum number is: ' + getNumberStringArr(Number.MAX_SAFE_INTEGER.toString()).join(','));
-            } else {
-                setInput(numb);
-            }
+            alert('Maximum number is: ' + addCommaToNumber(Number.MAX_SAFE_INTEGER));
         }
-    };
+    }, [input]);
 
-    const capitalizeFirstLetter = (str: string): string => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    };
-
-    const text: string = ConvertEngine(input);
-    const displayText: string = capitalizeFirstLetter(text);
+    const result: string | string[] = convertEngine(input);
 
     return (
         <div className="App">
-            <header className="App-header">
+            <div className="App-header">
+                <h1>
+                    {
+                        (typeof result === 'string')
+                            ? capitalizeFirstLetter(result)
+                            : result.map((str: string) => (
+                                <React.Fragment key={ str }>
+                                    { capitalizeFirstLetter(str) }
+                                    <br />
+                                </React.Fragment>
+                            ))
+                    }
+                </h1>
+            </div>
+            <div className="App-body">
+                <br />
+                <h1>{ addCommaToNumber(input) }</h1>
                 <label
                     className="form-label"
                     htmlFor="text-input"
@@ -45,10 +60,13 @@ function App() {
                     type="text"
                     value={ input }
                     onChange={ handleInputChange }
-                    className="form-control"
+                    className="form-control text-center"
                 />
-                <h1>{ displayText }</h1>
-            </header>
+                <Keyboard
+                    input={ input }
+                    setInput={ setInput }
+                />
+            </div>
         </div>
     );
 }
