@@ -4,7 +4,7 @@ type NumbersType = {
 
 export const TEEN = 'teen';
 export const TY = 'ty';
-export const HUNDRED = ' hundred';
+export const HUNDRED = ' hundred ';
 export const THOUSAND = ' thousand ';
 export const MILLION = ' million ';
 export const BILLION = ' billion ';
