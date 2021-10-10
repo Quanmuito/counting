@@ -34,12 +34,16 @@ function App() {
                 <h1>
                     {
                         (typeof result === 'string')
-                            ? capitalizeFirstLetter(result)
+                            ? (
+                                <h4 className="display-text">
+                                    { capitalizeFirstLetter(result) }
+                                </h4>
+                            )
                             : result.map((str: string) => (
-                                <React.Fragment key={ str }>
+                                <h4 className="display-text" key={ str }>
                                     { capitalizeFirstLetter(str) }
                                     <br />
-                                </React.Fragment>
+                                </h4>
                             ))
                     }
                 </h1>

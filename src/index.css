@@ -83,4 +83,20 @@ code {
     background: rgba(255, 255, 255, 0.12);
 }
 
+.display-text {
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 400px) {
+  .display-text {
+      font-size: 20px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .display-text {
+      font-size: 35px;
+  }
+}
+
 
